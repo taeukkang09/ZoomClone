@@ -31,7 +31,7 @@ io.on('connection', socket => {
     socket.on('message', (message) => {
       //send message to the same room
       io.to(roomId).emit('createMessage', message)
-  }); 
+    });
 
     socket.on('disconnect', () => {
       socket.to(roomId).broadcast.emit('user-disconnected', userId)
@@ -39,4 +39,4 @@ io.on('connection', socket => {
   })
 })
 
-server.listen(process.env.PORT||3030)
+server.listen(process.env.PORT || 3030)
